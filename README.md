@@ -59,7 +59,7 @@ agents/gtm-*.md               # 3 GTM-specific auditors
 ## Install (local directory marketplace)
 
 ```
-/plugin marketplace add /Users/CashMacbook/Documents/project/gtm-audit/gtm-distribution-audit
+/plugin marketplace add /path/to/gtm-distribution-audit
 /plugin install gtm-distribution-audit@gtm-audit-local
 ```
 
