@@ -76,3 +76,11 @@ python3 skills/gtm-distribution-audit/scripts/render_report.py audit-data.json -
 
 Source framework: *Distribution Channel Playbook: From User Pain to Product Adoption*
 and *AI-Agent GTM Platform: Technical Approaches by Playbook Stage*.
+
+## License
+
+Released under the [MIT License](LICENSE). © 2026 libingjun1024.
+
+## Contact
+
+Questions, ideas, or feedback? Reach out on X: [@lbjhkg](https://x.com/lbjhkg).
