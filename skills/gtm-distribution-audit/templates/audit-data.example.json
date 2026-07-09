@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0",
+  "project": {
+    "name": "MenuTidy",
+    "type": "macOS app",
+    "surfaces": ["desktop", "mac_app_store"],
+    "one_liner": "Hide and organize noisy macOS menu bar icons with one hover.",
+    "input_mode": "interview",
+    "audited_at": "2026-07-09",
+    "source": "interview"
+  },
+  "readiness_score": 41,
+  "gate_status": "blocked",
+  "gate_reason": "Pain evidence is anecdotal (score 34) — no clustered, cited primary evidence yet. Keyword and content work is discounted until real user pain is documented.",
+  "dimensions": [
+    {
+      "id": "pain_evidence", "name": "Pain evidence (primary)", "score": 34, "band": "missing", "weight": 3.0, "is_gate": true, "delegated_to": "gtm-pain-evidence",
+      "evidence": [
+        { "source_type": "interview", "excerpt": "Founder: 'My own menu bar is a mess, I assume everyone hates it.'", "source_url": null },
+        { "source_type": "reddit", "excerpt": "One r/macapps thread: 'too many icons up top, is there a fix?' (7 upvotes)", "source_url": "https://reddit.com/r/macapps/example" }
+      ],
+      "gaps": [
+        { "summary": "No clustered problem hypothesis from ≥5 interviews or 20+ reviews", "impact": 5, "effort": 2 },
+        { "summary": "Evidence is founder belief, not observed user pain", "impact": 5, "effort": 2 }
+      ],
+      "next_actions": ["Read 25+ reviews of competing menu-bar apps and cluster complaints", "Run 5 short interviews with heavy menu-bar users"]
+    },
+    {
+      "id": "user_language", "name": "User language & intent", "score": 38, "band": "missing", "weight": 3.0, "is_gate": true, "delegated_to": "gtm-pain-evidence",
+      "evidence": [ { "source_type": "interview", "excerpt": "Described as 'menu bar manager utility' — developer framing.", "source_url": null } ],
+      "gaps": [ { "summary": "No dev-term ↔ user-term glossary; no intent classification", "impact": 4, "effort": 2 } ],
+      "next_actions": ["Build a glossary: 'menu bar manager' ↔ 'hide menu bar icons' / 'clean up top bar'", "Tag top phrases by intent (informational vs solution-seeking)"]
+    },
+    {
+      "id": "keyword_opportunity", "name": "Keyword opportunity", "score": 45, "band": "partial", "weight": 2.0, "is_gate": false, "delegated_to": null,
+      "evidence": [ { "source_type": "keyword_tool", "excerpt": "'hide menu bar icons mac' looks low-competition per manual check.", "source_url": null } ],
+      "gaps": [ { "summary": "Scored on hunch, not the opportunity formula; capped by weak user-language map", "impact": 3, "effort": 2 } ],
+      "next_actions": ["Score candidates by intent × relevance × 1/competition × product_fit after glossary exists"]
+    },
+    {
+      "id": "serp_competition", "name": "SERP / competition", "score": 58, "band": "partial", "weight": 1.5, "is_gate": false, "delegated_to": "seo-technical",
+      "evidence": [ { "source_type": "serp", "excerpt": "Top results are two established apps + one stale 2021 listicle.", "source_url": null } ],
+      "gaps": [ { "summary": "Stale listicle is beatable but no content planned to fill the gap", "impact": 3, "effort": 3 } ],
+      "next_actions": ["Draft a 2026 'best menu bar apps' comparison to displace the stale listicle"]
+    },
+    {
+      "id": "channel_selection", "name": "Channel selection (1–2 deep)", "score": 40, "band": "partial", "weight": 2.0, "is_gate": false, "delegated_to": "gtm-channel-directory",
+      "evidence": [ { "source_type": "interview", "excerpt": "Plan is 'post on Twitter, TikTok, Reddit, and Product Hunt'.", "source_url": null } ],
+      "gaps": [ { "summary": "Four channels = shallow effort; not narrowed to 1–2 by intent fit", "impact": 4, "effort": 1 } ],
+      "next_actions": ["Narrow to Google Search (high intent) + Reddit (trust) and go deep"]
+    },
+    {
+      "id": "directory_strategy", "name": "Directory strategy", "score": 50, "band": "partial", "weight": 1.0, "is_gate": false, "delegated_to": "gtm-channel-directory",
+      "evidence": [ { "source_type": "serp", "excerpt": "Comparison intent exists ('best menu bar apps'); single product only.", "source_url": null } ],
+      "gaps": [ { "summary": "Portfolio fit low (1 product) → third-party listings, not owned directory", "impact": 2, "effort": 3 } ],
+      "next_actions": ["Identify 3–5 trusted Mac-app directories that already rank and list there"]
+    },
+    {
+      "id": "content_assets", "name": "Content assets & format", "score": 30, "band": "missing", "weight": 1.5, "is_gate": false, "delegated_to": "seo-content",
+      "evidence": [], "gaps": [ { "summary": "No content produced yet; format for niche unresearched", "impact": 4, "effort": 3 } ],
+      "next_actions": ["Produce 1 before/after demo GIF and 1 comparison post (pain-first, not feature-first)"]
+    },
+    {
+      "id": "landing_seo", "name": "Landing page / on-page SEO", "score": 44, "band": "partial", "weight": 1.5, "is_gate": false, "delegated_to": "seo-technical",
+      "evidence": [ { "source_type": "url", "excerpt": "Landing headline is 'Advanced menu bar management' — feature framing.", "source_url": null } ],
+      "gaps": [ { "summary": "Headline doesn't match user search intent/language", "impact": 4, "effort": 2 } ],
+      "next_actions": ["Rewrite headline to user language: 'Clean up your Mac menu bar in 10 seconds'"]
+    },
+    {
+      "id": "aso", "name": "App Store Optimization", "score": 36, "band": "missing", "weight": 1.0, "is_gate": false, "delegated_to": null,
+      "evidence": [ { "source_type": "app_store", "excerpt": "Subtitle unused; keyword field has brand terms only.", "source_url": null } ],
+      "gaps": [ { "summary": "Title/subtitle/keywords not using user-language long-tail", "impact": 3, "effort": 2 } ],
+      "next_actions": ["Add user-language keywords to subtitle + keyword field; lead screenshots with the before/after"]
+    },
+    {
+      "id": "geo_ai", "name": "GEO / AI visibility", "score": 42, "band": "partial", "weight": 1.5, "is_gate": false, "delegated_to": "seo-geo",
+      "evidence": [ { "source_type": "url", "excerpt": "No llms.txt; not cited in any AI-recommended lists.", "source_url": null } ],
+      "gaps": [ { "summary": "Brand absent from curated lists AI tools cite", "impact": 3, "effort": 3 } ],
+      "next_actions": ["Add llms.txt; earn inclusion in comparison lists Perplexity/ChatGPT cite"]
+    },
+    {
+      "id": "conversion_retention", "name": "Conversion / activation / retention", "score": 47, "band": "partial", "weight": 2.0, "is_gate": false, "delegated_to": "gtm-conversion-loop",
+      "evidence": [ { "source_type": "interview", "excerpt": "Tracks installs only; no first-value or retention metric.", "source_url": null } ],
+      "gaps": [ { "summary": "Install-only tracking; no time-to-first-value defined", "impact": 4, "effort": 3 } ],
+      "next_actions": ["Define first successful action (first icon hidden) and measure time-to-first-value"]
+    },
+    {
+      "id": "measurement_loop", "name": "Measurement & learning loop", "score": 40, "band": "partial", "weight": 1.5, "is_gate": false, "delegated_to": "gtm-conversion-loop",
+      "evidence": [], "gaps": [ { "summary": "No attribution from activation back to keyword/channel/content", "impact": 4, "effort": 3 } ],
+      "next_actions": ["Add UTM + event pipeline so activation attributes to source; set a monthly repeat/adjust/drop review"]
+    }
+  ],
+  "stages": [
+    { "n": 1, "name": "Hidden problem", "maturity": "amber", "note": "Suspected but not documented" },
+    { "n": 2, "name": "Problem awareness", "maturity": "red", "note": "No clustered problem statement" },
+    { "n": 3, "name": "Search intent appears", "maturity": "red", "note": "User language not captured" },
+    { "n": 4, "name": "Keyword discovery", "maturity": "amber", "note": "Hunch-level list" },
+    { "n": 5, "name": "Real SERP inspection", "maturity": "amber", "note": "Looked, gap not filled" },
+    { "n": 6, "name": "Channel mapping", "maturity": "amber", "note": "Too many channels" },
+    { "n": 7, "name": "Content format research", "maturity": "red", "note": "Not researched" },
+    { "n": 8, "name": "Emotional hook", "maturity": "red", "note": "Feature-first framing" },
+    { "n": 9, "name": "Landing page creation", "maturity": "amber", "note": "Exists, intent mismatch" },
+    { "n": 10, "name": "Social content creation", "maturity": "red", "note": "None produced" },
+    { "n": 11, "name": "Community placement", "maturity": "red", "note": "None" },
+    { "n": 12, "name": "SEO accumulation", "maturity": "red", "note": "No evergreen content" },
+    { "n": 13, "name": "Short-term acquisition", "maturity": "red", "note": "No campaigns" },
+    { "n": 14, "name": "Product positioning", "maturity": "amber", "note": "Generic framing" },
+    { "n": 15, "name": "App Store optimization", "maturity": "red", "note": "Metadata unused" },
+    { "n": 16, "name": "Trust building", "maturity": "red", "note": "No reviews/social proof" },
+    { "n": 17, "name": "Conversion", "maturity": "amber", "note": "CTA exists, unoptimized" },
+    { "n": 18, "name": "Activation", "maturity": "red", "note": "No first-value metric" },
+    { "n": 19, "name": "Retention", "maturity": "red", "note": "Not measured" },
+    { "n": 20, "name": "Feedback loop", "maturity": "red", "note": "No attribution loop" }
+  ],
+  "channel_recommendation": {
+    "primary_channels": ["Google Search", "Reddit"],
+    "directory_call": "Track B: strategic third-party listings (single product — owned directory not yet justified)",
+    "rationale": "High purchase intent lives in Google Search; Reddit (r/macapps) is where target users show pain and trust peers. Narrow from four channels to these two and go deep before expanding."
+  },
+  "red_flags": [
+    { "n": 1, "assumption": "Users have problems, so they will search", "dimension": "pain_evidence" },
+    { "n": 4, "assumption": "SEO content should be built around keywords", "dimension": "landing_seo" },
+    { "n": 10, "assumption": "More channels = better distribution", "dimension": "channel_selection" }
+  ],
+  "top_actions": [
+    { "summary": "Read 25+ competitor reviews and cluster complaints into named problem hypotheses", "dimension": "pain_evidence", "impact": 5, "effort": 2, "priority": 3.0 },
+    { "summary": "Run 5 short interviews with heavy menu-bar users", "dimension": "pain_evidence", "impact": 5, "effort": 2, "priority": 3.0 },
+    { "summary": "Narrow from four channels to Google Search + Reddit and go deep", "dimension": "channel_selection", "impact": 4, "effort": 1, "priority": 4.0 },
+    { "summary": "Rewrite landing headline in user language ('Clean up your Mac menu bar in 10 seconds')", "dimension": "landing_seo", "impact": 4, "effort": 2, "priority": 2.0 },
+    { "summary": "Build dev-term ↔ user-term glossary with intent tags", "dimension": "user_language", "impact": 4, "effort": 2, "priority": 2.0 }
+  ]
+}

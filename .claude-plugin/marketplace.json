@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "gtm-audit-local",
+  "description": "Local marketplace hosting the GTM Distribution Readiness Audit plugin.",
+  "owner": {
+    "name": "libingjun1024"
+  },
+  "plugins": [
+    {
+      "name": "gtm-distribution-audit",
+      "description": "Audit a project/idea against the Distribution Channel Playbook and render a visual GTM readiness report.",
+      "author": {
+        "name": "libingjun1024"
+      },
+      "source": "./",
+      "category": "marketing"
+    }
+  ]
+}

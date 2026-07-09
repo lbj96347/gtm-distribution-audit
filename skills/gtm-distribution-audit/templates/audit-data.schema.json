@@ -1,0 +1,129 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GTM Distribution Readiness Audit Data",
+  "type": "object",
+  "required": ["schema_version", "project", "readiness_score", "gate_status", "dimensions", "stages"],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": { "type": "string" },
+    "project": {
+      "type": "object",
+      "required": ["name", "one_liner", "input_mode"],
+      "properties": {
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "surfaces": {
+          "type": "array",
+          "description": "Product surfaces the product actually ships. Suggested vocabulary: web, ios, android, mac_app_store, desktop, browser_extension, api_cli, marketplace. Drives which surface-dependent dimensions/stages apply; the rest are marked na and excluded from the score. ASO/Stage 15 apply only for app-store surfaces (ios, android, mac_app_store).",
+          "items": { "type": "string" }
+        },
+        "one_liner": { "type": "string" },
+        "input_mode": { "type": "string", "enum": ["interview", "url", "brief"] },
+        "audited_at": { "type": "string" },
+        "source": { "type": "string" }
+      }
+    },
+    "readiness_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "gate_status": { "type": "string", "enum": ["ready", "blocked"] },
+    "gate_reason": { "type": "string" },
+    "dimensions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "score", "band", "weight", "is_gate"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+          "band": { "type": "string", "enum": ["solid", "partial", "missing", "na"] },
+          "weight": { "type": "number", "minimum": 0 },
+          "is_gate": { "type": "boolean" },
+          "delegated_to": { "type": ["string", "null"] },
+          "na_reason": {
+            "type": "string",
+            "description": "When band is \"na\", why this dimension does not apply to the product (e.g. \"No mobile-app surface — ASO not applicable\"). Rendered in place of gaps/next actions."
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["source_type", "excerpt"],
+              "properties": {
+                "source_type": { "type": "string" },
+                "excerpt": { "type": "string" },
+                "source_url": { "type": ["string", "null"] }
+              }
+            }
+          },
+          "gaps": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["summary", "impact", "effort"],
+              "properties": {
+                "summary": { "type": "string" },
+                "impact": { "type": "integer", "minimum": 1, "maximum": 5 },
+                "effort": { "type": "integer", "minimum": 1, "maximum": 5 }
+              }
+            }
+          },
+          "next_actions": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "required": ["n", "name", "maturity"],
+        "properties": {
+          "n": { "type": "integer", "minimum": 1, "maximum": 20 },
+          "name": { "type": "string" },
+          "maturity": { "type": "string", "enum": ["red", "amber", "green", "na"] },
+          "note": { "type": "string" },
+          "na_reason": {
+            "type": "string",
+            "description": "When maturity is \"na\", why this stage does not apply (e.g. \"Web-only product — no App Store surface\")."
+          }
+        }
+      }
+    },
+    "channel_recommendation": {
+      "type": "object",
+      "properties": {
+        "primary_channels": { "type": "array", "items": { "type": "string" } },
+        "directory_call": { "type": "string" },
+        "rationale": { "type": "string" }
+      }
+    },
+    "red_flags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["n", "assumption"],
+        "properties": {
+          "n": { "type": "integer" },
+          "assumption": { "type": "string" },
+          "dimension": { "type": "string" }
+        }
+      }
+    },
+    "top_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["summary", "priority"],
+        "properties": {
+          "summary": { "type": "string" },
+          "dimension": { "type": "string" },
+          "impact": { "type": "integer" },
+          "effort": { "type": "integer" },
+          "priority": { "type": "number" }
+        }
+      }
+    }
+  }
+}

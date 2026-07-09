@@ -1,0 +1,9 @@
+{
+  "name": "gtm-distribution-audit",
+  "version": "0.1.0",
+  "description": "Audit a project or idea against the Distribution Channel Playbook before investing in building channels. Scores GTM readiness across 12 dimensions (pain evidence, user language, keyword opportunity, SERP, channels, directory, content, landing/SEO, ASO, GEO, conversion/retention, learning loop) for digital marketing (SEO, ASO, GEO, content), enforces evidence-first gates, and renders a self-contained visual report. Triggers on: \"GTM audit\", \"distribution readiness\", \"go-to-market audit\", \"distribution channel audit\", \"should I build this channel\".",
+  "author": {
+    "name": "libingjun1024"
+  },
+  "license": "MIT"
+}

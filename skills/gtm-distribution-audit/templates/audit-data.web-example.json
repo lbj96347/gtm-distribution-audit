@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "project": {
+    "name": "InvoiceKit",
+    "type": "web app (SaaS)",
+    "surfaces": ["web"],
+    "one_liner": "Generate and send branded invoices from a browser, no signup to try.",
+    "input_mode": "interview",
+    "audited_at": "2026-07-09",
+    "source": "interview"
+  },
+  "readiness_score": 52,
+  "gate_status": "ready",
+  "gate_reason": "",
+  "dimensions": [
+    {
+      "id": "pain_evidence", "name": "Pain evidence (primary)", "score": 72, "band": "solid", "weight": 3.0, "is_gate": true, "delegated_to": "gtm-pain-evidence",
+      "evidence": [
+        { "source_type": "interview", "excerpt": "6 freelancers: 'I dread invoicing, my spreadsheet template looks unprofessional.'", "source_url": null },
+        { "source_type": "reddit", "excerpt": "r/freelance thread, 40+ comments on 'what do you use to invoice clients?'", "source_url": "https://reddit.com/r/freelance/example" }
+      ],
+      "gaps": [ { "summary": "Interviews skew to design freelancers; other verticals unverified", "impact": 3, "effort": 2 } ],
+      "next_actions": ["Interview 5 non-design freelancers (consultants, trades) to test breadth"]
+    },
+    {
+      "id": "user_language", "name": "User language & intent", "score": 68, "band": "partial", "weight": 3.0, "is_gate": true, "delegated_to": "gtm-pain-evidence",
+      "evidence": [ { "source_type": "interview", "excerpt": "Users say 'send an invoice', 'get paid faster', 'invoice template' — not 'billing automation'.", "source_url": null } ],
+      "gaps": [ { "summary": "Glossary exists but queries not yet tagged by intent class", "impact": 3, "effort": 2 } ],
+      "next_actions": ["Tag top phrases by intent (informational 'how to invoice' vs solution 'free invoice generator')"]
+    },
+    {
+      "id": "keyword_opportunity", "name": "Keyword opportunity", "score": 60, "band": "partial", "weight": 2.0, "is_gate": false, "delegated_to": null,
+      "evidence": [ { "source_type": "keyword_tool", "excerpt": "'free invoice generator' high volume/high competition; 'invoice template for consultants' long-tail, beatable.", "source_url": null } ],
+      "gaps": [ { "summary": "Not yet split into popular-vs-opportunity buckets", "impact": 3, "effort": 2 } ],
+      "next_actions": ["Score candidates by intent × relevance × 1/competition × product_fit; prioritize long-tail"]
+    },
+    {
+      "id": "serp_competition", "name": "SERP / competition", "score": 48, "band": "partial", "weight": 1.5, "is_gate": false, "delegated_to": "seo-technical",
+      "evidence": [ { "source_type": "serp", "excerpt": "Head terms owned by established SaaS; long-tail templates have thin, dated pages.", "source_url": null } ],
+      "gaps": [ { "summary": "Head SERP is authority-dominated; only long-tail is realistically winnable", "impact": 3, "effort": 3 } ],
+      "next_actions": ["Target the winnable long-tail template queries, not the head terms"]
+    },
+    {
+      "id": "channel_selection", "name": "Channel selection (1–2 deep)", "score": 55, "band": "partial", "weight": 2.0, "is_gate": false, "delegated_to": "gtm-channel-directory",
+      "evidence": [ { "source_type": "interview", "excerpt": "Leaning Google Search + a free-tool link-magnet, plus r/freelance participation.", "source_url": null } ],
+      "gaps": [ { "summary": "Two channels named but conversion path from Reddit not yet defined", "impact": 3, "effort": 2 } ],
+      "next_actions": ["Commit to Google Search (high intent) + free-tool pages; define the Reddit → site path"]
+    },
+    {
+      "id": "directory_strategy", "name": "Directory strategy", "score": 50, "band": "partial", "weight": 1.0, "is_gate": false, "delegated_to": "gtm-channel-directory",
+      "evidence": [ { "source_type": "serp", "excerpt": "'best invoicing tools' listicles rank; single product, no portfolio.", "source_url": null } ],
+      "gaps": [ { "summary": "Portfolio fit low (1 product) → third-party listings over owned directory", "impact": 2, "effort": 3 } ],
+      "next_actions": ["List in 3–5 trusted SaaS/freelance-tool directories that already rank"]
+    },
+    {
+      "id": "content_assets", "name": "Content assets & format", "score": 40, "band": "partial", "weight": 1.5, "is_gate": false, "delegated_to": "seo-content",
+      "evidence": [ { "source_type": "url", "excerpt": "One blog post; no free-template pages yet despite clear demand.", "source_url": null } ],
+      "gaps": [ { "summary": "No pain-first template/how-to content matching search intent", "impact": 4, "effort": 3 } ],
+      "next_actions": ["Ship free 'invoice template for <vertical>' pages that double as the product entry point"]
+    },
+    {
+      "id": "landing_seo", "name": "Landing page / on-page SEO", "score": 58, "band": "partial", "weight": 1.5, "is_gate": false, "delegated_to": "seo-technical",
+      "evidence": [ { "source_type": "url", "excerpt": "Headline 'Invoicing, simplified' — generic; try-without-signup is a strong hook though.", "source_url": null } ],
+      "gaps": [ { "summary": "Headline doesn't match user language ('send a professional invoice free')", "impact": 3, "effort": 2 } ],
+      "next_actions": ["Rewrite headline to user language and surface the no-signup try above the fold"]
+    },
+    {
+      "id": "aso", "name": "App Store Optimization", "score": 0, "band": "na", "weight": 1.0, "is_gate": false, "delegated_to": null,
+      "na_reason": "No app-store surface — InvoiceKit ships on the web only, so ASO does not apply and is excluded from the score.",
+      "evidence": [], "gaps": [], "next_actions": []
+    },
+    {
+      "id": "geo_ai", "name": "GEO / AI visibility", "score": 46, "band": "partial", "weight": 1.5, "is_gate": false, "delegated_to": "seo-geo",
+      "evidence": [ { "source_type": "url", "excerpt": "No llms.txt; occasionally mentioned in one 'best invoicing tools' list AI cites.", "source_url": null } ],
+      "gaps": [ { "summary": "Thin presence in curated lists AI assistants cite", "impact": 3, "effort": 3 } ],
+      "next_actions": ["Add llms.txt; earn inclusion in comparison lists Perplexity/ChatGPT cite"]
+    },
+    {
+      "id": "conversion_retention", "name": "Conversion / activation / retention", "score": 44, "band": "partial", "weight": 2.0, "is_gate": false, "delegated_to": "gtm-conversion-loop",
+      "evidence": [ { "source_type": "interview", "excerpt": "Tracks signups; no metric for 'first invoice sent' or repeat use.", "source_url": null } ],
+      "gaps": [ { "summary": "Signup-only tracking; first-value (first invoice sent) not measured", "impact": 4, "effort": 3 } ],
+      "next_actions": ["Define first successful action (first invoice sent) and measure time-to-first-value"]
+    },
+    {
+      "id": "measurement_loop", "name": "Measurement & learning loop", "score": 42, "band": "partial", "weight": 1.5, "is_gate": false, "delegated_to": "gtm-conversion-loop",
+      "evidence": [], "gaps": [ { "summary": "No attribution from activation back to keyword/channel/content", "impact": 4, "effort": 3 } ],
+      "next_actions": ["Add UTM + event pipeline so 'first invoice sent' attributes to its source"]
+    }
+  ],
+  "stages": [
+    { "n": 1, "name": "Hidden problem", "maturity": "green", "note": "Documented from 6 interviews" },
+    { "n": 2, "name": "Problem awareness", "maturity": "green", "note": "Clear problem statement in user words" },
+    { "n": 3, "name": "Search intent appears", "maturity": "amber", "note": "Glossary exists, intent not tagged" },
+    { "n": 4, "name": "Keyword discovery", "maturity": "amber", "note": "List exists, not opportunity-scored" },
+    { "n": 5, "name": "Real SERP inspection", "maturity": "amber", "note": "Head owned; long-tail winnable" },
+    { "n": 6, "name": "Channel mapping", "maturity": "amber", "note": "Two channels, path incomplete" },
+    { "n": 7, "name": "Content format research", "maturity": "amber", "note": "Template-page format identified" },
+    { "n": 8, "name": "Emotional hook", "maturity": "amber", "note": "No-signup try is a hook; headline generic" },
+    { "n": 9, "name": "Landing page creation", "maturity": "amber", "note": "Exists, intent-mismatched headline" },
+    { "n": 10, "name": "Social content creation", "maturity": "red", "note": "None produced yet" },
+    { "n": 11, "name": "Community placement", "maturity": "amber", "note": "Active in r/freelance" },
+    { "n": 12, "name": "SEO accumulation", "maturity": "red", "note": "Only one evergreen post" },
+    { "n": 13, "name": "Short-term acquisition", "maturity": "red", "note": "No campaigns" },
+    { "n": 14, "name": "Product positioning", "maturity": "amber", "note": "Generic 'simplified' framing" },
+    { "n": 15, "name": "App Store optimization", "maturity": "na", "note": "", "na_reason": "Web-only product — no App Store surface to optimize." },
+    { "n": 16, "name": "Trust building", "maturity": "amber", "note": "Some testimonials, no review corpus" },
+    { "n": 17, "name": "Conversion", "maturity": "amber", "note": "No-signup try helps; CTA unoptimized" },
+    { "n": 18, "name": "Activation", "maturity": "red", "note": "First-invoice-sent not measured" },
+    { "n": 19, "name": "Retention", "maturity": "red", "note": "Repeat use not tracked" },
+    { "n": 20, "name": "Feedback loop", "maturity": "red", "note": "No attribution loop" }
+  ],
+  "channel_recommendation": {
+    "primary_channels": ["Google Search", "Reddit"],
+    "directory_call": "Track B: strategic third-party listings (single product — owned directory not yet justified)",
+    "rationale": "Search intent for invoicing is high and lives in Google; free 'invoice template' pages double as SEO and product entry. Reddit (r/freelance) is where the documented pain and peer trust sit. No app-store channel — InvoiceKit is web-only, so it converts on the website."
+  },
+  "red_flags": [
+    { "n": 4, "assumption": "SEO content should be built around keywords, not user pain", "dimension": "content_assets" },
+    { "n": 8, "assumption": "Tracking signups is enough to know what's working", "dimension": "measurement_loop" }
+  ],
+  "top_actions": [
+    { "summary": "Ship free 'invoice template for <vertical>' pages that double as the product entry point", "dimension": "content_assets", "impact": 4, "effort": 3, "priority": 1.3 },
+    { "summary": "Define first successful action (first invoice sent) and measure time-to-first-value", "dimension": "conversion_retention", "impact": 4, "effort": 3, "priority": 1.3 },
+    { "summary": "Rewrite landing headline to user language and surface the no-signup try above the fold", "dimension": "landing_seo", "impact": 3, "effort": 2, "priority": 1.5 },
+    { "summary": "Commit to Google Search + free-tool pages and define the Reddit → site conversion path", "dimension": "channel_selection", "impact": 3, "effort": 2, "priority": 1.5 },
+    { "summary": "Add UTM + event pipeline so 'first invoice sent' attributes to its source", "dimension": "measurement_loop", "impact": 4, "effort": 3, "priority": 1.3 }
+  ]
+}
